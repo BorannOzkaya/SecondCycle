@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:second_cycle_ui/Chat_Page/chat_page.dart';
+import 'package:second_cycle_ui/My_Postings/my_postings.dart';
 import 'package:second_cycle_ui/Profile_Page/profile_page.dart';
+import 'package:second_cycle_ui/Sell_Page/sell_page.dart';
 
 import 'Home_Page/home_page.dart';
 
@@ -31,8 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pageOptions = [
     HomePage(),
+    ChatPage(),
+    SellPage(),
+    MyPositngs(),
     ProfilePage(),
-    ThirdPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -43,10 +48,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle style = TextButton.styleFrom(
+      foregroundColor: Theme.of(context).colorScheme.onPrimary,
+    );
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Bottom Navigation Example'),
-      ),
+      appBar: _selectedIndex == 3
+          ? null
+          : AppBar(
+              title: Text('SecondCycle'),
+              actions: [
+                TextButton(
+                  style: style,
+                  onPressed: () {},
+                  child: const Row(
+                    children: [
+                      Icon(Icons.location_on_outlined),
+                      Text('Görükle ......'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
       body: _pageOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -55,27 +77,27 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.chat_bubble),
+            label: 'Chat',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.camera_alt_rounded),
+            label: 'Sat',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.heart_broken_rounded),
+            label: 'İlanlar',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_rounded),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
-    );
-  }
-}
-
-class ThirdPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('School Page'),
     );
   }
 }
