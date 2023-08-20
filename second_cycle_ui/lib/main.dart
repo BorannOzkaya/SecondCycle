@@ -3,7 +3,9 @@ import 'package:second_cycle_ui/Chat_Page/chat_page.dart';
 import 'package:second_cycle_ui/My_Postings/my_postings.dart';
 import 'package:second_cycle_ui/Profile_Page/profile_page.dart';
 import 'package:second_cycle_ui/Sell_Page/sell_page.dart';
+import 'package:second_cycle_ui/constants.dart';
 
+import 'Chat_Page/chat_list.dart';
 import 'Home_Page/home_page.dart';
 
 void main() {
@@ -34,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pageOptions = [
     HomePage(),
-    ChatPage(),
+    ChatListPage(),
     SellPage(),
     MyPositngs(),
     ProfilePage(),
@@ -48,22 +50,38 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style = TextButton.styleFrom(
-      foregroundColor: Theme.of(context).colorScheme.onPrimary,
-    );
+    // final ButtonStyle style = TextButton.styleFrom(
+    //   foregroundColor: Theme.of(context).colorScheme.onPrimary,
+    // );
     return Scaffold(
-      appBar: _selectedIndex == 3
+      appBar: _selectedIndex == 3 || _selectedIndex == 1
           ? null
           : AppBar(
-              title: Text('SecondCycle'),
+              title: const Text(
+                'SecondCycle',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              backgroundColor: olive_yesil,
               actions: [
                 TextButton(
-                  style: style,
                   onPressed: () {},
                   child: const Row(
                     children: [
-                      Icon(Icons.location_on_outlined),
-                      Text('Görükle ......'),
+                      Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.white,
+                      ),
+                      SizedBox(width: 4),
+                      Text(
+                        'Görükle ...',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -94,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: olive_yesil,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),

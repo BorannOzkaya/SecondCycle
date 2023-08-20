@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second_cycle_ui/constants.dart';
 
 List<String> titles = <String>[
   'Cloud',
@@ -14,8 +15,18 @@ class MyPositngs extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('SecondCycle'),
+          title: const Text(
+            'SecondCycle',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          backgroundColor: olive_yesil,
           bottom: const TabBar(
+            labelColor: pastel_yesil, //<-- selected text color
+            unselectedLabelColor: Colors.white,
+            indicatorColor: Colors.black,
             tabs: <Widget>[
               Tab(
                 text: "İlanlarım",
@@ -25,6 +36,27 @@ class MyPositngs extends StatelessWidget {
               ),
             ],
           ),
+          actions: [
+            TextButton(
+              onPressed: () {},
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.location_on_outlined,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 4),
+                  Text(
+                    'Görükle ...',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
         body: const TabBarView(
           children: <Widget>[
