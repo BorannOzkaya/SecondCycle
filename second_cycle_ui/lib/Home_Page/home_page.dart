@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:second_cycle_ui/Home_Page/home_body.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: 'Search',
-                  hintText: 'Search for products...',
-                  prefixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            // Diğer bileşenler veya içerikler
-          ],
-        ),
-      ),
+      body: HomeBody(),
     );
   }
 }

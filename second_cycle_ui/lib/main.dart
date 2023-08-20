@@ -74,11 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Ana Sayfa',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat_bubble),
-            label: 'Chat',
+            label: 'Sohbet',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.camera_alt_rounded),
@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_rounded),
-            label: 'Profile',
+            label: 'Hesap',
           ),
         ],
         currentIndex: _selectedIndex,
